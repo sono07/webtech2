@@ -48,6 +48,7 @@ async function readBooksForAuthor(author, successCallback, errorCallback) {
         }
     );
 }
+
 // a create-t nem tudom hogy kellene :|
 async function createBook(book, successCallback, errorCallback) {
     const db = await dbConnect();

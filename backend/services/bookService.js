@@ -46,7 +46,7 @@ BookService.prototype.readBooksForAuthor = function(author, successCallback, err
     })
 };
 
-// a create-t nem tudom hogy kell mert nekem nincs id a könyvekhez tulajdonsagkent csak amit a mongo csinal
+//a create-t nem tudom hogy kell mert nekem nincs id a könyvekhez tulajdonsagkent csak amit a mongo csinal
 BookService.prototype.createBook = function(book, successCallback, errorCallback){
 
     this.bookDAO.createBook(book, (bookID) => {
