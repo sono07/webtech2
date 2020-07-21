@@ -1,6 +1,10 @@
 const http = require('http');
 const fs = require('fs');
 
+// Database
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
 const hostname = '127.0.0.1';
 const port = 3000;
 const home = fs.readFileSync('index.html')
