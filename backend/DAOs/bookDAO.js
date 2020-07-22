@@ -49,7 +49,22 @@ async function readBooksForAuthor(author, successCallback, errorCallback) {
     );
 }
 
-// a create-t nem tudom hogy kellene :|
+async function readBookForISBN(isbn, successCallback, errorCallback) {
+    const db = await dbConnect();
+    const collection = db.collection('books');
+
+    collection.findOne({"book.isbn": isbn}), ((error, book) => {
+        try {
+            assert.strictEqual(null, error, error);
+
+            successCallback(book);
+        } catch (error) {
+            errorCallback("" + error);
+        }
+    });
+}
+
+
 async function createBook(book, successCallback, errorCallback) {
     const db = await dbConnect();
     const collection = db.collection('books');
@@ -70,5 +85,6 @@ module.exports = {
     "readBooks" : readBooks,
     "readBooksForTitle" : readBooksForTitle,
     "readBooksForAuthor": readBooksForAuthor,
+	"readBookForISBN" : readBookForISBN,
     "createBook" : createBook
 };

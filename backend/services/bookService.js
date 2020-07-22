@@ -46,12 +46,21 @@ BookService.prototype.readBooksForAuthor = function(author, successCallback, err
     })
 };
 
-//a create-t nem tudom hogy kell mert nekem nincs id a könyvekhez tulajdonsagkent csak amit a mongo csinal
-BookService.prototype.createBook = function(book, successCallback, errorCallback){
+BookService.prototype.readBookForISBN = function(isbn, successCallback, errorCallback){
+    this.orderDAO.readBookForISBN(isbn, (book) => {
+        this.logger.info("readBookForISBN: book was found!");
+        successCallback(book);
+    }, (error) => {
+        this.logger.error("Error! " + error);
+        errorCallback(error);
+    })
+};
 
-    this.bookDAO.createBook(book, (bookID) => {
+BookService.prototype.createBook = function(isbn, book, successCallback, errorCallback){
+
+    this.bookDAO.createBook(isbn, book, () => {
         this.logger.info("createBook: Book created");
-        successCallback(bookID);
+        successCallback();
     }, (error) => {
         this.logger.error("Error! " + error);
         errorCallback(error);
