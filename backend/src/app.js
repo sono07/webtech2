@@ -12,7 +12,7 @@ var app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname,'..', '..', 'frontend', 'build')));
+app.use(express.static(path.join(__dirname,'..', '..', 'frontend')));
 
 app.use('/', indexRoutes);
 app.use('/book/', bookRoutes);
