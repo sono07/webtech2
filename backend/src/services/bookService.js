@@ -47,7 +47,7 @@ BookService.prototype.readBooksForAuthor = function(author, successCallback, err
 };
 
 BookService.prototype.readBookForISBN = function(isbn, successCallback, errorCallback){
-    this.orderDAO.readBookForISBN(isbn, (book) => {
+    this.bookDAO.readBookForISBN(isbn, (book) => {
         this.logger.info("readBookForISBN: book was found!");
         successCallback(book);
     }, (error) => {

@@ -37,7 +37,7 @@ async function readBooksForAuthor(author, successCallback, errorCallback) {
     const db = await dbConnect();
     const collection = db.collection('books');
 
-    collection.find({"book.author": author}.toArray((error, books) => {
+    collection.find({"book.author": author}).toArray((error, books) => {
             try {
                 assert.strictEqual(null, error, error);
 
@@ -45,8 +45,7 @@ async function readBooksForAuthor(author, successCallback, errorCallback) {
             } catch (error) {
                 errorCallback("" + error);
             }
-        }
-    );
+		});
 }
 
 async function readBookForISBN(isbn, successCallback, errorCallback) {
@@ -78,7 +77,7 @@ async function createBook(book, successCallback, errorCallback) {
         } catch (error) {
             errorCallback("" + error);
         }
-    })
+    });
 }
 
 module.exports = {
