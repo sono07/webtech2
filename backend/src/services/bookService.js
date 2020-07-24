@@ -38,7 +38,7 @@ BookService.prototype.readBooksForTitle = function(title, successCallback, error
 
 BookService.prototype.readBooksForAuthor = function(author, successCallback, errorCallback){
     this.bookDAO.readBooksForAuthor(author, (books) => {
-        this.logger.info("readBooksForAuthor: ${books.length} books were found!");
+        this.logger.info(`readBooksForAuthor: ${books.length} books were found!`);
         successCallback(books);
     }, (error) => {
         this.logger.error("Error! " + error);

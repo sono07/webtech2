@@ -52,7 +52,7 @@ async function readBookForISBN(isbn, successCallback, errorCallback) {
     const db = await dbConnect();
     const collection = db.collection('books');
 
-    collection.findOne({"book.isbn": isbn}), ((error, book) => {
+    collection.findOne({"book.isbn": isbn}, (error, book) => {
         try {
             assert.strictEqual(null, error, error);
 
