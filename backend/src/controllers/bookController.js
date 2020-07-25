@@ -63,8 +63,8 @@ routes.post("/createBook", (req, resp) => {
         return;
     }
 
-    bookService.createBook(book, (isbn) => {
-        resp.status(200).contentType("application/json").send({"isbn": isbn});
+    bookService.createBook(book, (bookID) => {
+        resp.status(200).contentType("application/json").send({"bookID": bookID});
     }, (error) => {
         resp.status(400).contentType("application/json").send({"error": error});
     });

@@ -58,9 +58,9 @@ BookService.prototype.readBookForISBN = function(isbn, successCallback, errorCal
 
 BookService.prototype.createBook = function(book, successCallback, errorCallback){
 
-    this.bookDAO.createBook(book, (isbn) => {
+    this.bookDAO.createBook(book, (bookID) => {
         this.logger.info("createBook: Book created");
-        successCallback(isbn);
+        successCallback(bookID);
     }, (error) => {
         this.logger.error("Error! " + error);
         errorCallback(error);
