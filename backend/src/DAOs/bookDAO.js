@@ -22,7 +22,7 @@ async function readBooksForTitle(title, successCallback, errorCallback) {
     const db = await dbConnect();
     const collection = db.collection('books');
 
-    collection.find({"book.title": title}).toArray((error, books) => {
+    collection.find({"title": title}).toArray((error, books) => {
         try {
             assert.strictEqual(null, error, error);
 
@@ -37,7 +37,7 @@ async function readBooksForAuthor(author, successCallback, errorCallback) {
     const db = await dbConnect();
     const collection = db.collection('books');
 
-    collection.find({"book.author": author}).toArray((error, books) => {
+    collection.find({"author": author}).toArray((error, books) => {
             try {
                 assert.strictEqual(null, error, error);
 
@@ -52,7 +52,7 @@ async function readBookForISBN(isbn, successCallback, errorCallback) {
     const db = await dbConnect();
     const collection = db.collection('books');
 
-    collection.findOne({"book.isbn": isbn}, (error, book) => {
+    collection.findOne({"isbn": isbn}, (error, book) => {
         try {
             assert.strictEqual(null, error, error);
 

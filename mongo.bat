@@ -1,0 +1,1 @@
+start c:\MongoDB\bin\mongo.exe
