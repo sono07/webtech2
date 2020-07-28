@@ -28,7 +28,7 @@ dispatcher.register((data) => {
 	axios.post("/book/readBookForISBN", {"isbn": body.book.isbn})
         .then((response) => {
 			
-			if(response.data !== null){ 
+			if(response.data.book !== null){ 
 				alert("Error: Book by ISBN is already in the database!");
 				return;
 			}
