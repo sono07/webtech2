@@ -1,6 +1,5 @@
 const routes = require("express").Router();
 
-const User = require("../models/user");
 const Book = require("../models/book");
 
 const BookService = require("../services/bookService");
@@ -48,6 +47,19 @@ routes.post("/readBookForISBN", (req, resp) => {
     }
 	
     bookService.readBookForISBN(req.body["isbn"], (book) => {
+        resp.status(200).contentType("application/json").send({"book": book});
+    }, (error) => {
+        resp.status(400).contentType("application/json").send({"error": error});
+    });
+});
+
+routes.post("/readBookForId", (req, resp) => {
+    if(req.body["id"] === undefined) {
+        resp.status(400).contentType("application/json").send({"error": "Id must be defined"});
+        return;
+    }
+	
+    bookService.readBookForId(req.body["id"], (book) => {
         resp.status(200).contentType("application/json").send({"book": book});
     }, (error) => {
         resp.status(400).contentType("application/json").send({"error": error});

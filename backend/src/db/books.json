@@ -1,0 +1,28 @@
+[{
+	"_id": {
+		"$oid": "5f1c4edca803a23888d5399f"
+	},
+	"title": "The Scorch Trials",
+	"author": "James Dashner",
+	"price": 3000,
+	"isbn": "9789632664469"
+},
+{
+	"_id": {
+		"$oid": "5f1c51a50e1bc229b8998d8d"
+	},
+	"title": "American Gods",
+	"author": "Neil Gaiman",
+	"price": 4000,
+	"isbn": "9780062472106"
+},
+{
+	"_id": {
+		"$oid": "5f1c5247bdfd5014c8841ff4"
+	},
+	"title": "The Maze Runner",
+	"author": "James Dashner",
+	"price": 3000.0,
+	"isbn": "9780385737951"
+}]
+

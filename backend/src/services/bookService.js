@@ -56,6 +56,16 @@ BookService.prototype.readBookForISBN = function(isbn, successCallback, errorCal
     })
 };
 
+BookService.prototype.readBookForId = function(id, successCallback, errorCallback){
+    this.bookDAO.readBookForId(id, (book) => {
+        this.logger.info("readBookForId: book was found!");
+        successCallback(book);
+    }, (error) => {
+        this.logger.error("Error! " + error);
+        errorCallback(error);
+    })
+};
+
 BookService.prototype.createBook = function(book, successCallback, errorCallback){
 
     this.bookDAO.createBook(book, (bookID) => {

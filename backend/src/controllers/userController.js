@@ -1,6 +1,5 @@
 const routes = require("express").Router();
 
-const Book = require("../models/book");
 const User = require("../models/user");
 
 const UserService = require("../services/userService");

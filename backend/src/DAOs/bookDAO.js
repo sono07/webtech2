@@ -48,6 +48,21 @@ async function readBooksForAuthor(author, successCallback, errorCallback) {
 		});
 }
 
+async function readBookForId(id, successCallback, errorCallback) {
+    const db = await dbConnect();
+    const collection = db.collection('books');
+
+    collection.findOne({"_id": ObjectID(id)}, (error, book) => {
+        try {
+            assert.strictEqual(null, error, error);
+
+            successCallback(book);
+        } catch (error) {
+            errorCallback("" + error);
+        }
+    });
+}
+
 async function readBookForISBN(isbn, successCallback, errorCallback) {
     const db = await dbConnect();
     const collection = db.collection('books');
@@ -84,6 +99,7 @@ module.exports = {
     "readBooks" : readBooks,
     "readBooksForTitle" : readBooksForTitle,
     "readBooksForAuthor": readBooksForAuthor,
-	"readBookForISBN" : readBookForISBN,
+    "readBookForISBN" : readBookForISBN,
+    "readBookForId": readBookForId,
     "createBook" : createBook
 };
