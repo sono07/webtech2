@@ -175,7 +175,7 @@ export class UserForm extends Component {
                     <label className="control-label">Pw:</label>
                     <input
                         id="pw"
-                        type="text"
+                        type="password"
                         name="pw"
                         placeholder="Enter password"
                         value={this.state.user.pw}
